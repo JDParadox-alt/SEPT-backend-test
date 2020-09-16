@@ -7,7 +7,6 @@
     <groupId>cosc2101</groupId>
     <artifactId>AppointmentBookingSystem</artifactId>
     <version>0.2</version>
-    <packaging>war</packaging>
 
     <dependencies>
 
@@ -140,6 +139,7 @@
     </dependencies>
 
 <build>
+    <finalName>ABS</finalName>
     <pluginManagement>
         <plugins>
             <plugin>
