@@ -34,6 +34,12 @@ public class AppConfig extends WebMvcConfigurerAdapter {
     @Bean
     public LocalSessionFactoryBean sessionFactory(){
 
+        URI dbUri = new URI(System.getenv("DATABASE_URL"));
+
+        String username = dbUri.getUserInfo().split(":")[0];
+        String password = dbUri.getUserInfo().split(":")[1];
+        String dbUrl = "jdbc:postgresql://" + dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath();
+
         Properties properties = new Properties();
         //For Postgresql
         properties.put("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
@@ -50,9 +56,9 @@ public class AppConfig extends WebMvcConfigurerAdapter {
         dataSource.setDriverClassName("org.postgresql.Driver");
 
         //REMEMBER TO SET YOUR DATABASE AND PASSWORD
-        dataSource.setUrl("jdbc:postgresql://localhost:5432/postgres");
-        dataSource.setUsername("postgres");
-        dataSource.setPassword("helloworld");
+        dataSource.setUrl(dbUrl);
+        dataSource.setUsername(username);
+        dataSource.setPassword(password);
 
         sessionFactoryBean.setDataSource(dataSource);
         sessionFactoryBean.setHibernateProperties(properties);
