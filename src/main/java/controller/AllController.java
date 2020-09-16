@@ -24,13 +24,15 @@ public class AllController {
     //Assign Controllers
 
     //Business
-    @CrossOrigin(origins = "http://localhost:3000")
+    @CrossOrigin
+    // @CrossOrigin(origins = "http://localhost:3000")
     @RequestMapping(path="businesses", method = RequestMethod.GET)
     public List<Business> getBusinesses() {
         return allService.getAllBusinesses();
     }
 
-    @CrossOrigin(origins = "http://localhost:3000")
+    @CrossOrigin
+    // @CrossOrigin(origins = "http://localhost:3000")
     @RequestMapping(path = "businesses/{businessId}", method = RequestMethod.GET)
     public ResponseEntity<Business> getBusiness(@PathVariable("businessId") int businessId){
     	Business business = allService.getBusiness(businessId);
@@ -42,7 +44,8 @@ public class AllController {
         return new ResponseEntity<Business>(business, HttpStatus.OK);
     }
 
-    @CrossOrigin(origins = "http://localhost:3000")
+    @CrossOrigin
+    // @CrossOrigin(origins = "http://localhost:3000")
     @RequestMapping(path = "businesses", method = RequestMethod.POST)
     public ResponseEntity<Void> saveBusiness(@RequestBody Business business, UriComponentsBuilder ucBuilder){
 
@@ -54,7 +57,8 @@ public class AllController {
         
     }
 
-    @CrossOrigin(origins = "http://localhost:3000")
+    @CrossOrigin
+    // @CrossOrigin(origins = "http://localhost:3000")
     @RequestMapping(path = "businesses", method = RequestMethod.PUT)
     public ResponseEntity<Void> updateBusiness(@RequestBody Business business){
         Business businessToBeUpdated = allService.getBusiness(business.getId());
@@ -68,7 +72,8 @@ public class AllController {
         return new ResponseEntity<Void>(HttpStatus.OK);
     }
 
-    @CrossOrigin(origins = "http://localhost:3000")
+    @CrossOrigin
+    // @CrossOrigin(origins = "http://localhost:3000")
     @RequestMapping(path = "businesses/{businessId}", method = RequestMethod.DELETE)
     public ResponseEntity<Void> deleteBusiness(@PathVariable("businessId") int businessId){
     	Business business = allService.getBusiness(businessId);
