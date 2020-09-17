@@ -14,7 +14,7 @@ import java.util.List;
 /**
  * Created by CoT on 7/29/18.
  */
-@CrossOrigin(origins = {"http://localhost:3000", "https://sept-frontend.herokuapp.com/", "https://sept-frontend-test.herokuapp.com/"})
+@CrossOrigin(origins = {"http://localhost:3000", "https://sept-frontend.herokuapp.com", "https://sept-frontend-test.herokuapp.com"})
 @RestController
 @RequestMapping(path = "/api/")
 public class AllController {
