@@ -6,7 +6,7 @@
 
     <groupId>cosc2101</groupId>
     <artifactId>AppointmentBookingSystem</artifactId>
-    <version>0.2</version>
+    <version>0.3</version>
     <packaging>war</packaging>
 
     <dependencies>
@@ -191,12 +191,14 @@
 
         </plugins>
     </pluginManagement>
+
     <plugins>
         <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-dependency-plugin</artifactId>
         </plugin>
     </plugins>
+    
 </build>
 
 

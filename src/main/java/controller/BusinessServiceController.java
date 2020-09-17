@@ -16,6 +16,7 @@ import java.util.List;
 /**
  * Created by CoT on 7/29/18.
  */
+@CrossOrigin(origins = {"http://localhost:3000", "https://sept-frontend.herokuapp.com/", "https://sept-frontend-test.herokuapp.com/"})
 @RestController
 @RequestMapping(path = "/api/")
 public class BusinessServiceController {
@@ -28,15 +29,13 @@ public class BusinessServiceController {
     }
 
     
-    //GET ALL
-    @CrossOrigin(origins = "http://localhost:3000")
+    //GET ALL\
     @RequestMapping(path = "businessServices", method = RequestMethod.GET)
     public List<BusinessService> getAllBusinessServices(){
         return businessServiceService.getAllBusinessServices();
     }
 
     //GET BY ID
-    @CrossOrigin(origins = "http://localhost:3000")
     @RequestMapping(path = "businessServices/{businessServiceId}", method = RequestMethod.GET)
     public ResponseEntity<BusinessService> getBusinessService(@PathVariable("businessServiceId") int businessServiceId){
     	BusinessService businessService = businessServiceService.getBusinessService(businessServiceId);
@@ -49,7 +48,6 @@ public class BusinessServiceController {
     }
     
     //CREATE
-    @CrossOrigin(origins = "http://localhost:3000")
     @RequestMapping(path = "businessServices", method = RequestMethod.POST)
     public ResponseEntity<Void> saveBusinessService(@RequestBody BusinessService businessService, UriComponentsBuilder ucBuilder){
 
@@ -62,7 +60,6 @@ public class BusinessServiceController {
     }
 
     //UPDATE
-    @CrossOrigin(origins = "http://localhost:3000")
     @RequestMapping(path = "businessServices", method = RequestMethod.PUT)
     public ResponseEntity<Void> updateBusinessService(@RequestBody BusinessService businessService){
     	BusinessService businessServiceToBeUpdated = businessServiceService.getBusinessService(businessService.getId());
@@ -77,7 +74,6 @@ public class BusinessServiceController {
     }
     
     //DELETE
-    @CrossOrigin(origins = "http://localhost:3000")
     @RequestMapping(path = "businessServices/{businessServiceId}", method = RequestMethod.DELETE)
     public ResponseEntity<Void> deleteBusinessService(@PathVariable("businessServiceId") int businessServiceId){
     	BusinessService businessService = businessServiceService.getBusinessService(businessServiceId);

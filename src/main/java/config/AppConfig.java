@@ -12,8 +12,9 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
-import java.net.*; 
 import javax.sql.DataSource;
+
+import java.net.URI;
 import java.util.Properties;
 
 /**
@@ -35,8 +36,6 @@ public class AppConfig extends WebMvcConfigurerAdapter {
     @Bean
     public LocalSessionFactoryBean sessionFactory(){
 
-        
-
         Properties properties = new Properties();
         //For Postgresql
         properties.put("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
@@ -53,6 +52,7 @@ public class AppConfig extends WebMvcConfigurerAdapter {
         dataSource.setDriverClassName("org.postgresql.Driver");
 
         //REMEMBER TO SET YOUR DATABASE AND PASSWORD
+
         try {
             URI dbUri = new URI(System.getenv("DATABASE_URL"));
 

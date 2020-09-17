@@ -17,6 +17,7 @@ import java.util.List;
 /**
  * Created by CoT on 7/29/18.
  */
+@CrossOrigin(origins = {"http://localhost:3000", "https://sept-frontend.herokuapp.com/", "https://sept-frontend-test.herokuapp.com/"})
 @RestController
 @RequestMapping(path = "/api/")
 public class BookingController {
@@ -29,14 +30,12 @@ public class BookingController {
     }
     
     //GET ALL
-    @CrossOrigin(origins = "http://localhost:3000")
     @RequestMapping(path = "bookings", method = RequestMethod.GET)
     public List<Booking> getAllBookings(){
         return bookingService.getAllBookings();
     }
     
     //GET BY ID
-    @CrossOrigin(origins = "http://localhost:3000")
     @RequestMapping(path = "bookings/{bookingId}", method = RequestMethod.GET)
     public ResponseEntity<Booking> getBooking(@PathVariable("bookingId") int bookingId){
     	Booking booking = bookingService.getBooking(bookingId);
@@ -49,7 +48,6 @@ public class BookingController {
     }
 
     //CREATE
-    @CrossOrigin(origins = "http://localhost:3000")
     @RequestMapping(path = "bookings", method = RequestMethod.POST)
     public ResponseEntity<Void> saveBooking(@RequestBody Booking booking, UriComponentsBuilder ucBuilder){
 
@@ -62,7 +60,6 @@ public class BookingController {
     }
     
     //UPDATE
-    @CrossOrigin(origins = "http://localhost:3000")
     @RequestMapping(path = "bookings", method = RequestMethod.PUT)
     public ResponseEntity<Void> updateBooking(@RequestBody Booking booking){
     	Booking bookingToBeUpdated = bookingService.getBooking(booking.getId());
@@ -78,7 +75,6 @@ public class BookingController {
 
 
     //DELETE
-    @CrossOrigin(origins = "http://localhost:3000")
     @RequestMapping(path = "bookings/{bookingId}", method = RequestMethod.DELETE)
     public ResponseEntity<Void> deleteBusinessService(@PathVariable("bookingId") int bookingId){
     	Booking booking = bookingService.getBooking(bookingId);
