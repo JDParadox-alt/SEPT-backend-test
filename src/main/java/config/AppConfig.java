@@ -64,7 +64,9 @@ public class AppConfig extends WebMvcConfigurerAdapter {
             dataSource.setUsername(username);
             dataSource.setPassword(password);
         } catch (Exception e) {
-            //TODO: handle exception
+            dataSource.setUrl("jdbc:postgresql://localhost:5432/postgres");
+            dataSource.setUsername("postgres");
+            dataSource.setPassword("helloworld");
         }
 
         sessionFactoryBean.setDataSource(dataSource);
