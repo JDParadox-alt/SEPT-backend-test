@@ -60,8 +60,6 @@ public class AppConfig extends WebMvcConfigurerAdapter {
             String password = dbUri.getUserInfo().split(":")[1];
             String dbUrl = "jdbc:postgresql://" + dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath();
 
-            //Only works occasionally
-
             dataSource.setUrl(dbUrl);
             dataSource.setUsername(username);
             dataSource.setPassword(password);
