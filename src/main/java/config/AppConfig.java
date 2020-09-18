@@ -32,7 +32,6 @@ public class AppConfig extends WebMvcConfigurerAdapter {
                 .addResourceLocations("/WEB-INF/classes/static/");
     }
 
-
     @Bean
     public LocalSessionFactoryBean sessionFactory(){
 
